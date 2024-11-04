@@ -23,7 +23,7 @@ describe "Academia de Magia" {
 	 //Muebles
 	const baul = new Baul(volumenMaximo = 5, cosasGuardadas = #{escoba})
 	 // TODO: construir/obtener un baúl con volumen máximo = 5 y la escoba dentro
-	const gabineteMagico = new GabineteMagico(cosasGuardadas = #{varita})
+	const gabineteMagico = new GabineteMagico(cosasGuardadas = #{varita}, precio = 6)
 	 // TODO: construir/obtener un gabinete mágico con la varita dentro. El precio = 6 (segunda parte)
 	const armario = new Armario (capacidadMaxima = 2, cosasGuardadas = #{pelota})
 	 // TODO: construir/obtener un armario con cantidad máxima = 2 y la pelota dentro
@@ -110,17 +110,24 @@ describe "Academia de Magia" {
 		assert.notThat(academia.estaGuardada(pava))
   	}
  
-/*
- * 	test "punto 2.1 utilidad" {
- * 		// TODO: Guardar la pava en el armario
- * 		// TODO: Guardar la lámpara en el gabinete mágico
- * 		var baulMagico = null // TODO: construir/obtener un baúl mágico con volumen máximo = 12 y con la escoba y la lámpara dentro
- * 		// TODO: Verificar que la utilidad del armario es 1.1
- * 		// TODO: Verificar que la utilidad del ganibete mágico es 3
- * 		// TODO: Verificar que la utilidad del baúl es 4
- * 		// TODO: Verificar que la utilidad del baúl mágico es 5
- * 	}
- */
+//Problema en gabinete magico y armario
+  	test "punto 2.1 utilidad" {
+		// TODO: construir/obtener un baúl mágico con volumen máximo = 12 y con la escoba y la lámpara dentro
+		var baulMagico = new BaulMagico(volumenMaximo = 12, cosasGuardadas= #{escoba, lamparaAladino})
+  		// TODO: Guardar la pava en el armario
+		armario.agregar(pava)
+  		// TODO: Guardar la lámpara en el gabinete mágico
+  		gabineteMagico.agregar(lamparaAladino)
+  		// TODO: Verificar que la utilidad del armario es 1.1
+		assert.equals(1.1, armario.utilidad())
+  		// TODO: Verificar que la utilidad del ganibete mágico es 3
+		assert.equals(3, gabineteMagico.utilidad())
+  		// TODO: Verificar que la utilidad del baúl es 4
+		assert.equals(4, baul.utilidad())
+  		// TODO: Verificar que la utilidad del baúl mágico es 5
+		assert.equals(5, baulMagico.utilidad())
+  	}
+ 
 /*
  * 	test "punto 2.2 cosas menos utiles" {
  * 		// TODO: Guardar la pava en el armario
