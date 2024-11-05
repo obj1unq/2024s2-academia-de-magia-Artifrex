@@ -157,17 +157,24 @@ describe "Academia de Magia" {
   		// TODO: Remover las cosas menos útiles de la academia que no son mágicas
 		academia.eliminarCosasInutilesNoMagicas()
   		// TODO: Verificar que la varita está guardada en la academia
+		assert.that(academia.estaGuardada(varita))
   		// TODO: Verificar que la pelota NO está guardada en la academia
+		assert.notThat(academia.estaGuardada(pelota))
   		// TODO: Verificar que la escoba está guardada en la academia
+		assert.that(academia.estaGuardada(escoba))
   		// TODO: Verificar que la pava está guardada en la academia
+		assert.that(academia.estaGuardada(pava))
   		// TODO: Verificar que la lámpara está guardada en la academia
+		assert.that(academia.estaGuardada(lamparaAladino))
   	}
  
-/*
- * 	test "punto 2.4 imposible remover cosas menos utiles que no son magicas" {
- * 		// TODO: Hacer que la academia tenga solamente el armario y el baúl
- * 		// TODO: Remover las cosas menos útiles de la academia que no son mágicas (NO SE PUEDE!)
- * 	}
- */
+
+  	test "punto 2.4 imposible remover cosas menos utiles que no son magicas" {
+  		// TODO: Hacer que la academia tenga solamente el armario y el baúl
+		const academia = new Academia(muebles = #{armario, baul})
+  		// TODO: Remover las cosas menos útiles de la academia que no son mágicas (NO SE PUEDE!)
+		assert.throwsException({academia.eliminarCosasInutilesNoMagicas()})
+  	}
+ 
 }
 

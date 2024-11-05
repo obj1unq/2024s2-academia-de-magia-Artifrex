@@ -48,9 +48,23 @@ class Academia {
 		return self.cosaMasInutil().marca()
 	}
 
+	method cosasMenosUtilesNoMagicas() {
+		return self.cosasMenosUtiles().filter({cosa => not cosa.esMagica()})
+	}
+
 	method eliminarCosasInutilesNoMagicas() {
 		self.validarEliminar()
-		self.cosasMenosUtiles().forEach({cosa => })
+		self.cosasMenosUtilesNoMagicas().forEach({cosa => self.eliminar(cosa) })
+	}
+
+	method validarEliminar() {
+		if (muebles.size() < 3) {
+			self.error("No hay suficientes muebles en la Academia")
+		}
+	}
+
+	method eliminar(cosa) {
+		self.dondeEstaGuardada(cosa).eliminar(cosa)
 	}
 
 }
@@ -81,6 +95,10 @@ class Mueble {
 
 	method cosaMenosUtil() {
 		return cosasGuardadas.min({cosa => cosa.utilidad()})
+	}
+
+	method eliminar(cosa) {
+		cosasGuardadas.remove(cosa)
 	}
 }
 
