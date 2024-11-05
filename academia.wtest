@@ -113,7 +113,7 @@ describe "Academia de Magia" {
 //Problema en gabinete magico y armario
   	test "punto 2.1 utilidad" {
 		// TODO: construir/obtener un baúl mágico con volumen máximo = 12 y con la escoba y la lámpara dentro
-		var baulMagico = new BaulMagico(volumenMaximo = 12, cosasGuardadas= #{escoba, lamparaAladino})
+		const baulMagico = new BaulMagico(volumenMaximo = 12, cosasGuardadas= #{escoba, lamparaAladino})
   		// TODO: Guardar la pava en el armario
 		armario.agregar(pava)
   		// TODO: Guardar la lámpara en el gabinete mágico
@@ -128,32 +128,41 @@ describe "Academia de Magia" {
 		assert.equals(5, baulMagico.utilidad())
   	}
  
-/*
- * 	test "punto 2.2 cosas menos utiles" {
- * 		// TODO: Guardar la pava en el armario
- * 		// TODO: Guardar la lámpara en el gabinete mágico
- * 		// TODO: Verificar que las cosas menos útiles en la academia son la pelota, la varita y la escoba
- * 	}
- */
-/*
- * 	test "punto 2.3 marca de cosa menos util" {
- * 		// TODO: Guardar la pava en el armario
- * 		// TODO: Guardar la lámpara en el gabinete mágico
- * 		// TODO: Verificar que la marca menos útil de la academia es cuchuflito
- * 	}
- */
-/*
- * 	test "punto 2.4 remover cosas menos utiles que no son magicas" {
- * 		// TODO: Guardar la pava en el armario
- * 		// TODO: Guardar la lámpara en el gabinete mágico
- * 		// TODO: Remover las cosas menos útiles de la academia que no son mágicas
- * 		// TODO: Verificar que la varita está guardada en la academia
- * 		// TODO: Verificar que la pelota NO está guardada en la academia
- * 		// TODO: Verificar que la escoba está guardada en la academia
- * 		// TODO: Verificar que la pava está guardada en la academia
- * 		// TODO: Verificar que la lámpara está guardada en la academia
- * 	}
- */
+
+  	test "punto 2.2 cosas menos utiles" {
+  		// TODO: Guardar la pava en el armario
+		armario.agregar(pava)
+  		// TODO: Guardar la lámpara en el gabinete mágico
+		gabineteMagico.agregar(lamparaAladino)
+  		// TODO: Verificar que las cosas menos útiles en la academia son la pelota, la varita y la escoba
+		assert.equals(#{pelota, varita, escoba}, academia.cosasMenosUtiles())
+  	}
+ 
+
+  	test "punto 2.3 marca de cosa menos util" {
+  		// TODO: Guardar la pava en el armario
+		armario.agregar(pava)
+  		// TODO: Guardar la lámpara en el gabinete mágico
+		gabineteMagico.agregar(lamparaAladino)
+  		// TODO: Verificar que la marca menos útil de la academia es cuchuflito
+		assert.equals(cuchuflito, academia.marcaMenosUtil())
+  	}
+ 
+
+  	test "punto 2.4 remover cosas menos utiles que no son magicas" {
+  		// TODO: Guardar la pava en el armario
+		armario.agregar(pava)
+  		// TODO: Guardar la lámpara en el gabinete mágico
+		gabineteMagico.agregar(lamparaAladino)
+  		// TODO: Remover las cosas menos útiles de la academia que no son mágicas
+		academia.eliminarCosasInutilesNoMagicas()
+  		// TODO: Verificar que la varita está guardada en la academia
+  		// TODO: Verificar que la pelota NO está guardada en la academia
+  		// TODO: Verificar que la escoba está guardada en la academia
+  		// TODO: Verificar que la pava está guardada en la academia
+  		// TODO: Verificar que la lámpara está guardada en la academia
+  	}
+ 
 /*
  * 	test "punto 2.4 imposible remover cosas menos utiles que no son magicas" {
  * 		// TODO: Hacer que la academia tenga solamente el armario y el baúl

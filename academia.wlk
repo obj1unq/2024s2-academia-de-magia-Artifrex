@@ -36,6 +36,22 @@ class Academia {
 		return muebles.find({mueble => mueble.tieneGuardada(cosa)})
 	}
 
+	method cosasMenosUtiles() {
+		return muebles.map({mueble => mueble.cosaMenosUtil()}).asSet()
+	}
+
+	method cosaMasInutil() {
+		return self.cosasMenosUtiles().min({cosa => cosa.utilidad()})
+	}
+
+	method marcaMenosUtil() {
+		return self.cosaMasInutil().marca()
+	}
+
+	method eliminarCosasInutilesNoMagicas() {
+		self.validarEliminar()
+		self.cosasMenosUtiles().forEach({cosa => })
+	}
 
 }
 
@@ -62,7 +78,10 @@ class Mueble {
 	}
 
 	method precio()
-	
+
+	method cosaMenosUtil() {
+		return cosasGuardadas.min({cosa => cosa.utilidad()})
+	}
 }
 
 class Armario inherits Mueble {
